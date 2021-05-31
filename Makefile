@@ -4,12 +4,15 @@ CSRC  = $(shell find src/ -name "*.c")
 SSRC  = $(shell find src/ -name "*.s")
 OBJS  = $(patsubst %,$(O)/%.o,$(CSRC) $(SSRC))
 
+.DEFAULT_GOAL := all
+
 GBASYS_DIR=.
 include gbasys.mak
 
 .SECONDARY:
 
 .PHONY: all clean
+
 all: $(O)/gbasys.a
 
 $(O)/gbasys.a: $(OBJS)
